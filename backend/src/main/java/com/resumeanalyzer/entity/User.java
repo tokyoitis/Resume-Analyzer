@@ -2,7 +2,6 @@ package com.resumeanalyzer.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.management.relation.Role;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
