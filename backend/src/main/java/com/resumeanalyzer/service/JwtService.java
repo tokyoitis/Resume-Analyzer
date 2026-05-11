@@ -7,7 +7,10 @@ import java.util.jar.JarException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.resumeanalyzer.entity.User;
+
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
 @Service
@@ -25,7 +28,7 @@ public class JwtService {
     }
 
     public String generateToken(String email){
-        return Jwts.builder().setSubject(email).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis()+jwtExpirationMs)).signWith(getSigningKey()).compact();
+        return Jwts.builder().setSubject(email).setIssuedAt(new Date()).setExpiration(new Date(System.currentTimeMillis()+jwtExpirationMs)).signWith(getSigningKey(),SignatureAlgorithm.HS256).compact();
     }
 
     public String extractEmail(String token){
@@ -48,5 +51,10 @@ public class JwtService {
         }catch(IllegalArgumentException e){
             return false;
         }
+    }
+
+    public String generateToken(User user) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'generateToken'");
     }
 }

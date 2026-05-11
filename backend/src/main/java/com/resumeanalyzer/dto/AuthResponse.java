@@ -1,5 +1,7 @@
 package com.resumeanalyzer.dto;
 
+import com.resumeanalyzer.entity.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
